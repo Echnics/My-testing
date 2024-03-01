@@ -102,8 +102,8 @@ trigger:
   entity_id: !input remote
 action:
 - variables:
-    entity: !input remote
-    command: '{{ states[entity].state }}'
+    remote_entity: !input remote
+    command: '{{ states[remote_entity].state }}'
 - choose:
   - conditions:
     - '{{ command == ''on_l1'' }}'
