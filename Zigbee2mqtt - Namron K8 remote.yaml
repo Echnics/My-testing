@@ -41,7 +41,7 @@ blueprint:
       selector:
         action: {}
     off_button_2_short:
-      name: Off button 2 - short
+      name: Off button 2 - shortereter
       default: []
       selector:
         action: {}
@@ -100,10 +100,10 @@ max_exceeded: silent
 trigger:
 - platform: state
   entity_id: !input remote
-  attribute: action
 action:
 - variables:
-    command: '{{ trigger.to_state.state }}'
+    entity: !input remote
+    command: '{{ states[entity].state }}'
 - choose:
   - conditions:
     - '{{ command == ''on_l1'' }}'
