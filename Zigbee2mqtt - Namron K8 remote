@@ -1,0 +1,153 @@
+blueprint:
+  name: Zigbee2MQTT - Namron K8 Blueprint
+  description: This blueprint is for the Namron K8 Zigbee2MQTT.
+  domain: automation
+  input:
+    remote:
+      name: Remote
+      description: Namron remote to use
+      selector:
+        device:
+          filter:
+            - integration: mqtt
+              manufacturer: Namron
+          entity:
+            - domain: sensor
+    on_button_1_short:
+      name: On button 1 - short
+      default: []
+      selector:
+        action: {}
+    off_button_1_short:
+      name: Off button 1 - short
+      default: []
+      selector:
+        action: {}
+    on_button_1_hold:
+      name: On button 1 - hold
+      default: []
+      selector:
+        action: {}
+    off_button_1_hold:
+      name: Off button 1 - hold
+      default: []
+      selector:
+        action: {}
+    on_button_2_short:
+      name: On button 2 - short
+      default: []
+      selector:
+        action: {}
+    off_button_2_short:
+      name: Off button 2 - short
+      default: []
+      selector:
+        action: {}
+    on_button_2_hold:
+      name: On button 2 - hold
+      default: []
+      selector:
+        action: {}
+    off_button_2_hold:
+      name: Off button 2 - hold
+      default: []
+      selector:
+        action: {}
+    on_button_3_short:
+      name: On button 3 - short
+      default: []
+      selector:
+        action: {}
+    off_button_3_short:
+      name: Off button 3 - short
+      default: []
+      selector:
+        action: {}
+    on_button_3_hold:
+      name: On button 3 - hold
+      default: []
+      selector:
+        action: {}
+    off_button_3_hold:
+      name: Off button 3 - hold
+      default: []
+      selector:
+        action: {}
+    on_button_4_short:
+      name: On button 4 - short
+      default: []
+      selector:
+        action: {}
+    off_button_4_short:
+      name: Off button 4 - short
+      default: []
+      selector:
+        action: {}
+    on_button_4_hold:
+      name: On button 4 - hold
+      default: []
+      selector:
+        action: {}
+    off_button_4_hold:
+      name: Off button 4 - hold
+      default: []
+      selector:
+        action: {}
+mode: restart
+max_exceeded: silent
+trigger:
+- platform: state
+  entity_id: !input remote
+  attribute: action
+action:
+- variables:
+    command: '{{ trigger.to_state.state }}'
+- choose:
+  - conditions:
+    - '{{ command == ''on_l1'' }}'
+    sequence: !input on_button_1_short
+  - conditions:
+    - '{{ command == ''off_l1'' }}'
+    sequence: !input off_button_1_short
+  - conditions:
+    - '{{ command == ''brightness_move_up_l1'' }}'
+    sequence: !input on_button_1_hold
+  - conditions:
+    - '{{ command == ''brightness_move_down_l1'' }}'
+    sequence: !input off_button_1_hold
+  - conditions:
+    - '{{ command == ''on_l2'' }}'
+    sequence: !input on_button_2_short
+  - conditions:
+    - '{{ command == ''off_l2'' }}'
+    sequence: !input off_button_2_short
+  - conditions:
+    - '{{ command == ''brightness_move_up_l2'' }}'
+    sequence: !input on_button_2_hold
+  - conditions:
+    - '{{ command == ''brightness_move_down_l2'' }}'
+    sequence: !input off_button_2_hold
+  - conditions:
+    - '{{ command == ''on_l3'' }}'
+    sequence: !input on_button_3_short
+  - conditions:
+    - '{{ command == ''off_l3'' }}'
+    sequence: !input off_button_3_short
+  - conditions:
+    - '{{ command == ''brightness_move_up_l3'' }}'
+    sequence: !input on_button_3_hold
+  - conditions:
+    - '{{ command == ''brightness_move_down_l3'' }}'
+    sequence: !input off_button_3_hold
+  - conditions:
+    - '{{ command == ''on_l4'' }}'
+    sequence: !input on_button_4_short
+  - conditions:
+    - '{{ command == ''off_l4'' }}'
+    sequence: !input off_button_4_short
+  - conditions:
+    - '{{ command == ''brightness_move_up_l4'' }}'
+    sequence: !input on_button_4_hold
+  - conditions:
+    - '{{ command == ''brightness_move_down_l4'' }}'
+    sequence: !input off_button_4_hold
