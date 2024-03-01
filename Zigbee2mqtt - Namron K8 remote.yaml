@@ -2,6 +2,7 @@ blueprint:
   name: Zigbee2MQTT - Namron K8 Blueprint
   description: This blueprint is for the Namron K8 Zigbee2MQTT.
   domain: automation
+  source_url: https://github.com/Echnics/My-testing/blob/main/Zigbee2mqtt%20-%20Namron%20K8%20remote.yaml
   input:
     remote:
       name: Remote
