@@ -10,12 +10,11 @@ blueprint:
       name: Remote
       description: Namron remote to use
       selector:
-        device:
-          filter:
-            - integration: mqtt
-              manufacturer: Namron
-          entity:
-            - domain: sensor
+        entity:
+          integration: mqtt
+          domain:
+          - sensor
+          multiple: false
     on_button_1_short:
       name: On button 1 - short
       default: []
