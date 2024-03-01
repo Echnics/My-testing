@@ -100,10 +100,11 @@ max_exceeded: silent
 trigger:
 - platform: state
   entity_id: !input remote
-action:
+
 - variables:
     remote_entity: !input remote
     command: '{{ states[remote_entity].state }}'
+action:
 - choose:
   - conditions:
     - '{{ command == ''on_l1'' }}'
