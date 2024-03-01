@@ -106,7 +106,7 @@ action:
     command: '{{ states[entity].state }}'
 - choose:
   - conditions:
-    - '{{ command == ''on_l1'' }}'
+    - '{{ command == 'on_l1' }}'
     sequence: !input on_button_1_short
   - conditions:
     - '{{ command == ''off_l1'' }}'
@@ -121,7 +121,7 @@ action:
     - '{{ command == ''on_l2'' }}'
     sequence: !input on_button_2_short
   - conditions:
-    - '{{ command == ''off_l2'' }}'
+    - '{{ command == 'off_l2' }}'
     sequence: !input off_button_2_short
   - conditions:
     - '{{ command == ''brightness_move_up_l2'' }}'
