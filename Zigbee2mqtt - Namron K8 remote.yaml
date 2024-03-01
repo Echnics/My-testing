@@ -1,6 +1,6 @@
 blueprint:
   name: Zigbee2MQTT - Namron K8 Blueprint
-  description: description: "# Zigbee2MQTT - Namron K8 Remote\n**Version: 1.0**\n\n
+  description: "# Zigbee2MQTT - Namron K8 Remote\n**Version: 1.0**\n\n
     - Punkter her\n\n - Håper du liker denne blueprint  \U0001F642\n\n
     [Echnics](https://github.com/Echnics)\U0001F642\n"
   domain: automation
